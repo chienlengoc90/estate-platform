@@ -24,7 +24,7 @@
 				<a href="index.html" class="navbar-brand">
 					<small>
 						<i class="fa fa-leaf"></i>
-						Ace Admin
+						Estate Admin
 					</small>
 				</a>
 			</div>
@@ -38,20 +38,21 @@
 								<li class="light-blue dropdown-modal">
 									<a href="<c:url value='/home-page'/>">
 										<i class="ace-icon fa fa-home home-icon"></i>
-										News-Home
+										Estate-Home
 									</a>
 								</li>
 								<li class="light-blue dropdown-modal">
 									<a href="<c:url value='/logout'/>">
 										<i class="ace-icon fa fa-power-off"></i>
-										Exit
+										Logout
 									</a>
 								</li>
 								
 					</li>
 				</ul>
 			</div>
-		</div><!-- /.navbar-container -->
+		</div>
+		<!-- /.navbar-container -->
 </div>
 
 

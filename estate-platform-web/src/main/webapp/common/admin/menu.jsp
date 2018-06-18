@@ -36,23 +36,6 @@
             </div>
         </div>
         <ul class="nav nav-list">
-            <li class="">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-list"></i>
-                    <span class="menu-text"><spring:message code="Label.NewsManage" text="News Manage"/></span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-                <ul class="submenu">
-                    <li class="">                       
-                        <a href='<c:url value='/admin/news/list'/>'>
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            <spring:message code="Label.NewsList" text="News List"/>
-                        </a>
-                        <b class="arrow"></b>
-                    </li>
-                </ul>
-            </li>
             <!-- MANAGE USER -->
              <li class="">
                 <a href="#" class="dropdown-toggle">
@@ -65,25 +48,7 @@
                     <li class="">                       
                         <a href='<c:url value='/admin/user/list'/>'>
                             <i class="menu-icon fa fa-caret-right"></i>
-                            <spring:message code="Label.NewsList" text="News List"/>
-                        </a>
-                        <b class="arrow"></b>
-                    </li>
-                </ul>
-            </li>
-             <!-- Utils -->
-             <li class="">
-                <a href="#" class="dropdown-toggle">
-                    <i class="menu-icon fa fa-list"></i>
-                    <span class="menu-text"><spring:message code="Label.Utils" text="Utils"/></span>
-                    <b class="arrow fa fa-angle-down"></b>
-                </a>
-                <b class="arrow"></b>
-                <ul class="submenu">
-                    <li class="">                       
-                        <a href='<c:url value='/admin/utils/upload'/>'>
-                            <i class="menu-icon fa fa-caret-right"></i>
-                            <spring:message code="Label.UploadFile" text="Upload File"/>
+                            <spring:message code="Label.List.User" text="User List"/>
                         </a>
                         <b class="arrow"></b>
                     </li>
