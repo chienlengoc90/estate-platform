@@ -63,6 +63,19 @@ public class UserService implements IUserService {
 		UserEntity userEntity = userConverter.convertToEntity(userDTO);
 		userEntity = userRepository.save(userEntity);
 		return userConverter.convertToDto(userEntity);
+	}
 
+	@Override
+	public UserDTO findNewsById(long id) {
+		UserEntity entity = userRepository.findOne(id);
+		UserDTO dto = userConverter.convertToDto(entity);	
+		return dto;
+	}
+
+	@Override
+	public void delete(long id) {
+		UserEntity userEntity = userRepository.findOne(id);
+		userEntity.setStatus(0);
+		userRepository.save(userEntity);
 	}
 }
