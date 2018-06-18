@@ -33,5 +33,4 @@ public class UsersAPI {
 			return ResponseEntity.notFound().build();
 		}
 	}
-
 }
