@@ -27,7 +27,7 @@
 							<ul class="breadcrumb">
 								<li>
 									<i class="ace-icon fa fa-home home-icon"></i>
-									<a href="#">>
+									<a href="<c:url value="/admin/home"/>">
 										<spring:message code="Label.Home" text="Home" />
 									</a>
 								</li>
@@ -131,9 +131,11 @@
 														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật user" href='<c:url value="/admin/user/${tableList.id}"/>'>
 															<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 														</a>
+														<!--  PHIỀN QUÁ NÊN BỎ LUÔN :D:D:D
 														<a class="btn btn-sm btn-danger btn-cancel" data-toggle="tooltip" title='<spring:message code="Label.User.Delete" text="Delete User"/>'>
 															<i class="fa fa-trash" aria-hidden="true"></i>
 														</a>
+														-->
 													</display:column>
 												</display:table>
 											</div>
@@ -144,10 +146,6 @@
 						</div>
 					</div>
 				</form:form>
-			</div>
-
-			<!-- Modal -->
-			<div class="modal fade" id="myModal" role="dialog">
 			</div>
 
 			<script type="text/javascript">
@@ -216,16 +214,7 @@
 						contentType: 'application/json',
 						data: JSON.stringify(data),
 						success: function (res) {
-							// $.each(data, function (i, item) {
-							// 	$('tbody input[type=checkbox]:checked').closest('tr').remove();
-							// });
-							// $('#answers').html(res);
-							//$(id).remove();
-							//alert("xoa thanh cong");
 							location.reload();
-							// admin/news/list
-							//window.location = "<c:url value='admin/news/list'/>";
-							//$('#listForm').submit();
 						},
 						error: function (res) {
 							console.log(res);
@@ -234,7 +223,6 @@
 					});
 				}
 			</script>
-
 		</body>
 
 		</html>
