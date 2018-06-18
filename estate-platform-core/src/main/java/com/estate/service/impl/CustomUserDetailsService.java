@@ -35,7 +35,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 			log.error(CustomMessages.ERR_USER_NOT_FOUND);
 			throw new UsernameNotFoundException(CustomMessages.ERR_USER_NOT_FOUND);
 		}
-		if (userDTO.getStatus()== 0){
+		if (userDTO.getStatus() == 0) {
 			log.error(CustomMessages.ERR_USER_NOT_FOUND);
 			throw new UsernameNotFoundException(CustomMessages.ERR_USER_IS_DELETED);
 		}

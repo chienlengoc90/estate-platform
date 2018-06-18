@@ -8,11 +8,9 @@
         <title><spring:message code="Label.Home" text="Home"/></title>
 	</head>
     <body class="no-skin">
-           
-    
             <!-- basic scripts -->
     
-            <script src="assets/js/jquery.2.1.1.min.js"></script>
+            <script src="<c:url value="/template/admin/assets/js/jquery.2.1.1.min.js"/>"></script>
     
             <script type="text/javascript">
                 window.jQuery || document.write("<script src='assets/js/jquery.min.js'>"+"<"+"/script>");
@@ -28,24 +26,24 @@
             <script type="text/javascript">
                 if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
             </script>
-            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="<c:url value="/template/admin/assets/js/bootstrap.min.js"/>"></script>
     
             <!-- page specific plugin scripts -->
     
             <!--[if lte IE 8]>
                 <script src="assets/js/excanvas.min.js"></script>
             <![endif]-->
-            <script src="assets/js/jquery-ui.custom.min.js"></script>
-            <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
-            <script src="assets/js/jquery.easypiechart.min.js"></script>
-            <script src="assets/js/jquery.sparkline.min.js"></script>
-            <script src="assets/js/jquery.flot.min.js"></script>
-            <script src="assets/js/jquery.flot.pie.min.js"></script>
-            <script src="assets/js/jquery.flot.resize.min.js"></script>
+            <script src="<c:url value="/template/admin/assets/js/jquery-ui.custom.min.js"/>"></script>
+            <script src="<c:url value="/template/admin/assets/js/jquery.ui.touch-punch.min.js"/>"></script>
+            <script src="<c:url value="/template/admin/assets/js/jquery.easypiechart.min.js"/>"></script>
+            <script src="<c:url value="/template/admin/assets/js/jquery.sparkline.min.js"/>"></script>
+            <script src="<c:url value="/template/admin/assets/js/jquery.flot.min.js"/>"></script>
+            <script src="<c:url value="/template/admin/assets/js/jquery.flot.pie.min.js"/>"></script>
+            <script src="<c:url value="/template/admin/assets/js/jquery.flot.resize.min.js"/>"></script>
     
             <!-- ace scripts -->
-            <script src="assets/js/ace-elements.min.js"></script>
-            <script src="assets/js/ace.min.js"></script>
+            <script src="<c:url value="/template/admin/assets/js/ace-elements.min.js"/>"></script>
+            <script src="<c:url value="/template/admin/assets/js/ace.min.js"/>"></script>
     
             <!-- inline scripts related to this page -->
             <script type="text/javascript">
