@@ -22,10 +22,7 @@ public class UsersController {
 
 	@Autowired
 	private UserService userService;
-
-	// @Autowired
-	// private IRoleService roleService;
-
+	
 	@RequestMapping(value = "/admin/user/list", method = RequestMethod.GET)
 	public ModelAndView getNews(@ModelAttribute(SystemConstant.MODEL) UserDTO model, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/user/list");
@@ -35,19 +32,6 @@ public class UsersController {
 		model.setListResult(news);
 		model.setTotalItems(userService.getTotalItems(model.getUserName()));
 		mav.addObject(SystemConstant.MODEL, model);
-		return mav;
-	}
-
-	// khi tạo mới g�?i tới
-	@RequestMapping(value = "/admin/user/modal", method = RequestMethod.GET)
-	public ModelAndView editNewsPage() {
-		// ModelAndView mav = new ModelAndView("admin/user/edit");
-		ModelAndView mav = new ModelAndView("admin/user/Modal");
-		/*
-		 * NewsDTO news = new NewsDTO();
-		 * news.setCategories(categoryService.getCategories());
-		 * mav.addObject(SystemConstant.MODEL, news);
-		 */
 		return mav;
 	}
 }

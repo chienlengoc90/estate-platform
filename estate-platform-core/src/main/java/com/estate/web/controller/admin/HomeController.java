@@ -8,13 +8,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller(value = "homeOfAdmin")
 public class HomeController {
 	
-//	@Autowired
-//	private UserRepository userRepository;
-
 	@RequestMapping(value = "/admin/home", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("admin/home");
-		/*mav.addObject("user", userRepository.findOneByUserName(SystemConstant.ROLE_ADMIN));*/
 		return mav;
 	}
 }
