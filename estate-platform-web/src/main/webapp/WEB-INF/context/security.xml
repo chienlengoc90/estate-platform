@@ -11,13 +11,7 @@
     
         <!--ROLE_ADMIN-->
         <intercept-url pattern="/admin/home" access="hasRole('MANAGER')" /> 
-        
-      <!--   
-        <intercept-url pattern="/admin/news/list" access="hasRole('MANAGER')" />
-        <intercept-url pattern="/admin/news/**" access="hasRole('MANAGER')" />
-        <intercept-url pattern="/admin/news/edit" access="hasRole('MANAGER')" /> 
-      -->
-
+                
 		<access-denied-handler error-page="/access-denied" />
         <form-login  login-page="/login"   
                      username-parameter="j_username"
