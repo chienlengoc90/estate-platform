@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.estate.service.IUserService;
 
 @RestController
-@RequestMapping("/ajax/users")
-public class UsersAPI {
+@RequestMapping("/ajax/user")
+public class UserAPI {
 
 	@Autowired
 	private IUserService userService;

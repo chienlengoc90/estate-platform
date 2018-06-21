@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	<%@include file="/common/taglib.jsp"%>
 		<c:url var="formUrl" value="/admin/user/list" />
-		<c:url var="formAjax" value="/ajax/users" />
+		<c:url var="formAjax" value="/ajax/user" />
 		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 		<html>
 
@@ -67,11 +67,11 @@
 														<div class="form-horizontal">
 															<div class="form-group">
 																<label class="col-sm-2 control-label">
-																	<spring:message code="Label.Search.UserName" text="User Name" />
+																	<spring:message code="label.search.value"/>
 																</label>
 																<div class="col-sm-8">
 																	<div class="fg-line">
-																		<form:input path="userName" cssClass="form-control input-sm" />
+																		<form:input path="searchValue" cssClass="form-control input-sm" />
 																	</div>
 																</div>
 															</div>

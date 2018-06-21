@@ -18,7 +18,7 @@ import com.estate.service.impl.UserService;
 import com.estate.utils.DisplayTagUtils;
 
 @Controller(value = "usersControllerOfAdmin")
-public class UsersController {
+public class UserController {
 
 	@Autowired
 	private UserService userService;
@@ -27,10 +27,11 @@ public class UsersController {
 	public ModelAndView getNews(@ModelAttribute(SystemConstant.MODEL) UserDTO model, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView("admin/user/list");
 		DisplayTagUtils.initSearchBean(request, model);
-		List<UserDTO> news = userService.getUsers(model.getUserName(),
+		
+		List<UserDTO> news = userService.getUsers(model.getSearchValue(),
 				new PageRequest(model.getPage() - 1, model.getMaxPageItems()));
 		model.setListResult(news);
-		model.setTotalItems(userService.getTotalItems(model.getUserName()));
+		model.setTotalItems(userService.getTotalItems(model.getSearchValue()));
 		mav.addObject(SystemConstant.MODEL, model);
 		return mav;
 	}

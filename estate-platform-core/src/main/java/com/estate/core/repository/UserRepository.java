@@ -9,10 +9,8 @@ import com.estate.core.entity.UserEntity;
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 	UserEntity findOneByUserName(String userName);
 
-	Page<UserEntity> findByUserNameContainingIgnoreCase(String userName, Pageable pageable);
+	long countByUserNameContainingIgnoreCaseOrFullNameContainingIgnoreCase(String userName, String fullName);
 
-	long countByUserNameContainingIgnoreCase(String userName);
-
-	Page<UserEntity> findByUserNameContainingIgnoreCaseOrFullNameIgnoreCaseContaining(String userName, String fullName,
+	Page<UserEntity> findByUserNameContainingIgnoreCaseOrFullNameContainingIgnoreCase(String userName, String fullName,
 			Pageable pageable);
 }

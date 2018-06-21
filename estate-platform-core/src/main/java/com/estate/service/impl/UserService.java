@@ -3,6 +3,7 @@ package com.estate.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,8 +34,8 @@ public class UserService implements IUserService {
 	@Override
 	public List<UserDTO> getUsers(String searchValue, Pageable pageable) {
 		Page<UserEntity> newsPage = null;
-		if (searchValue != null) {
-			newsPage = userRepository.findByUserNameContainingIgnoreCaseOrFullNameIgnoreCaseContaining(searchValue,
+		if (searchValue != null && StringUtils.isNotEmpty(searchValue)) {
+			newsPage = userRepository.findByUserNameContainingIgnoreCaseOrFullNameContainingIgnoreCase(searchValue,
 					searchValue, pageable);
 		} else {
 			newsPage = userRepository.findAll(pageable);
@@ -49,10 +50,10 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public int getTotalItems(String userName) {
+	public int getTotalItems(String searchValue) {
 		int totalItem = 0;
-		if (userName != null) {
-			totalItem = (int) userRepository.countByUserNameContainingIgnoreCase(userName);
+		if (searchValue != null && StringUtils.isNotEmpty(searchValue)) {
+			totalItem = (int) userRepository.countByUserNameContainingIgnoreCaseOrFullNameContainingIgnoreCase(searchValue, searchValue);
 		} else {
 			totalItem = (int) userRepository.count();
 		}
