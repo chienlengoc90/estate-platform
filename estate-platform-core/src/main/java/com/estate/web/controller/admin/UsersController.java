@@ -57,7 +57,7 @@ public class UsersController {
 	public ModelAndView getNewsById(@PathVariable("id") Long id,@ModelAttribute(SystemConstant.MODEL) UserDTO model) {
 		ModelAndView mav = new ModelAndView("admin/user/edit");
 		UserDTO userDTO = userService.findNewsById(id);
-		model.set
+		//model.set
 		mav.addObject(SystemConstant.MODEL, model);
 		return mav;
 	}
