@@ -58,6 +58,7 @@ public class UsersController {
 		ModelAndView mav = new ModelAndView("admin/user/edit");
 		UserDTO userDTO = userService.findNewsById(id);
 		//model.set
+		//model
 		mav.addObject(SystemConstant.MODEL, model);
 		return mav;
 	}
