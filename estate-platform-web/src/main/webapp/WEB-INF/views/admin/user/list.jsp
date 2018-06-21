@@ -128,7 +128,7 @@
 													<display:column headerClass="text-left" property="phoneNumber" title="phone Number" />
 													<display:column headerClass="text-left" property="status" title="status" />
 													<display:column headerClass="col-actions" title="Thao tác" >
-														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật user" href='<c:url value="/admin/user/${tableList.id}"/>'>
+														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật user" href='<c:url value="/admin/user/edit/${tableList.id}"/>'>
 															<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 														</a>
 														<!--  PHIỀN QUÁ NÊN BỎ LUÔN :D:D:D
