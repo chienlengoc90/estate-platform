@@ -33,7 +33,7 @@
 				<ul class="nav ace-nav">
 					<li class="light-blue dropdown-modal">	
 								<a data-toggle="dropdown" href="#" class="dropdown-toggle">								
-										<spring:message code="Label.Welcome"/>, <%=SecurityUtils.getPrincipal().getFullName()%>																
+										Xin chào, <%=SecurityUtils.getPrincipal().getFullName()%>																
 								</a>								
 								<li class="light-blue dropdown-modal">
 									<a href="<c:url value='/logout'/>">

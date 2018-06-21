@@ -9,7 +9,7 @@
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<title>
-				<spring:message code="Label.NewsList" text="News List" />
+				<spring:message code="label.user.list"/>
 			</title>
 		</head>
 
@@ -28,11 +28,11 @@
 								<li>
 									<i class="ace-icon fa fa-home home-icon"></i>
 									<a href="<c:url value="/admin/home"/>">
-										<spring:message code="Label.Home" text="Home" />
+										<spring:message code="label.home"/>
 									</a>
 								</li>
 								<li class="active">
-									<spring:message code="Label.NewsList" text="News List" />
+									<spring:message code="label.user.list"/>
 								</li>
 							</ul>
 							<!-- /.breadcrumb -->
@@ -54,7 +54,7 @@
 											<div class="widget-box table-filter">
 												<div class="widget-header">
 													<h4 class="widget-title">
-														<spring:message code="Label.Search" text="Search" />
+														<spring:message code="label.search"/>
 													</h4>
 													<div class="widget-toolbar">
 														<a href="#" data-action="collapse">
@@ -79,7 +79,7 @@
 																<label class="col-sm-2 control-label"></label>
 																<div class="col-sm-8">
 																	<button id="btnSearch" type="button" class="btn btn-sm btn-success">
-																		<spring:message code="Label.Search" text="Search" />
+																		<spring:message code="label.search"/>
 																		<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 																	</button>
 																</div>
@@ -91,7 +91,7 @@
 											<div class="table-btn-controls">
 												<div class="pull-right tableTools-container">
 													<div class="dt-buttons btn-overlap btn-group">
-														<a flag="info" class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='<spring:message code="Label.New.Add" text="Add new post"/>'
+														<a flag="info" class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='<spring:message code="label.user.add"/>'
 														    href='<c:url value="/admin/user/edit"/>'>
 															<span>
 																<i class="fa fa-plus-circle bigger-110 purple"></i>
@@ -123,10 +123,10 @@
 													</display:column>
 													<display:column headerClass="text-left" property="userName" title="Tên" />
 
-													<display:column headerClass="text-left" property="fullName" title="full name" />
+													<display:column headerClass="text-left" property="fullName" title="tên đầy đủ" />
 													<display:column headerClass="text-left" property="email" title="email" />
-													<display:column headerClass="text-left" property="phoneNumber" title="phone Number" />
-													<display:column headerClass="text-left" property="status" title="status" />
+													<display:column headerClass="text-left" property="phoneNumber" title="Số điện thoại" />
+													<display:column headerClass="text-left" property="status" title="Trạng thái" />
 													<display:column headerClass="col-actions" title="Thao tác" >
 														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật user" href='<c:url value="/admin/user/${tableList.id}"/>'>
 															<i class="fa fa-pencil-square-o" aria-hidden="true"></i>

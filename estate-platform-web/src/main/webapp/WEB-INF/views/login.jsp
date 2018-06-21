@@ -18,12 +18,14 @@
 						</h4>
 						<c:if test="${param.incorrectAccount != null}">
 							<div class="alert alert-block alert-danger">
-							<spring:message code="Error.NotFound.loginForm.account" />
+							<%-- <spring:message code="Error.NotFound.loginForm.account" /> --%>
+							Tên đăng nhập hoặc mật khẩu sai							
 							</div>
 						</c:if>
 						<c:if test="${param.accessDenied != null}">
 							<div class="alert alert-block alert-danger">
-							<spring:message code="Error.User.Permission" /></div>
+							<%-- <spring:message code="Error.User.Permission" /></div> --%>
+							Không có quyền truy cập
 						</c:if>
 						<div class="space-6"></div>
 
@@ -48,10 +50,7 @@
 								<div class="space"></div>
 
 								<div class="clearfix">
-									<label class="inline">
-										<input type="checkbox" class="ace" />
-										<span class="lbl"> Remember Me</span>
-									</label>
+									
 
 									<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
 										<i class="ace-icon fa fa-key"></i>
@@ -62,26 +61,7 @@
 								<div class="space-4"></div>
 							</fieldset>
 						</form>
-
-						<div class="social-or-login center">
-							<span class="bigger-110">Or Login Using</span>
-						</div>
-
-						<div class="space-6"></div>
-
-						<div class="social-login center">
-							<a class="btn btn-primary">
-								<i class="ace-icon fa fa-facebook"></i>
-							</a>
-
-							<a class="btn btn-info">
-								<i class="ace-icon fa fa-twitter"></i>
-							</a>
-
-							<a class="btn btn-danger">
-								<i class="ace-icon fa fa-google-plus"></i>
-							</a>
-						</div>
+																		
 					</div><!-- /.widget-main -->
 
 					<div class="toolbar clearfix">
