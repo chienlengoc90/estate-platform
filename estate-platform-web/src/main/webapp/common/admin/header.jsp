@@ -21,10 +21,10 @@
 			</button>
 
 			<div class="navbar-header pull-left">
-				<a href="#" class="navbar-brand">
+				<a href="<c:url value='/admin/home'/>" class="navbar-brand">
 					<small>
 						<i class="fa fa-leaf"></i>
-						Estate Admin
+						Quản lý tòa nhà
 					</small>
 				</a>
 			</div>
@@ -34,20 +34,13 @@
 					<li class="light-blue dropdown-modal">	
 								<a data-toggle="dropdown" href="#" class="dropdown-toggle">								
 										<spring:message code="Label.Welcome"/>, <%=SecurityUtils.getPrincipal().getFullName()%>																
-								</a>
-								<li class="light-blue dropdown-modal">
-									<a href="<c:url value='/home-page'/>">
-										<i class="ace-icon fa fa-home home-icon"></i>
-										Quản lý tòa nhà
-									</a>
-								</li>
+								</a>								
 								<li class="light-blue dropdown-modal">
 									<a href="<c:url value='/logout'/>">
 										<i class="ace-icon fa fa-power-off"></i>
 										Thoát
 									</a>
-								</li>
-								
+								</li>							
 					</li>
 				</ul>
 			</div>

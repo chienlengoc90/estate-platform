@@ -130,12 +130,7 @@
 													<display:column headerClass="col-actions" title="Thao tác" >
 														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật user" href='<c:url value="/admin/user/${tableList.id}"/>'>
 															<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-														</a>
-														<!--  PHIỀN QUÁ NÊN BỎ LUÔN :D:D:D
-														<a class="btn btn-sm btn-danger btn-cancel" data-toggle="tooltip" title='<spring:message code="Label.User.Delete" text="Delete User"/>'>
-															<i class="fa fa-trash" aria-hidden="true"></i>
-														</a>
-														-->
+														</a>														
 													</display:column>
 												</display:table>
 											</div>
