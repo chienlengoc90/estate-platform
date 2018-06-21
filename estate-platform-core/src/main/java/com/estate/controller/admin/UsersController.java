@@ -1,4 +1,4 @@
-package com.estate.web.controller.admin;
+package com.estate.controller.admin;
 
 import java.util.List;
 

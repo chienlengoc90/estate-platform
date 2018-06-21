@@ -1,4 +1,4 @@
-package com.estate.web.controller.admin.api;
+package com.estate.controller.admin.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

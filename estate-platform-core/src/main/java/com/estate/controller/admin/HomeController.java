@@ -1,4 +1,4 @@
-package com.estate.web.controller.web;
+package com.estate.controller.admin;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller(value = "homeOfWeb")
+@Controller(value = "homeOfAdmin")
 public class HomeController {
-
-	@RequestMapping(value = "/home-page", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/admin/home", method = RequestMethod.GET)
 	public ModelAndView homePage() {
-		ModelAndView mav = new ModelAndView("web/home");
-		//mav.addObject(SystemConstant.MODEL, homeService.getHomeDetail());
+		ModelAndView mav = new ModelAndView("admin/home");
 		return mav;
 	}
 	
@@ -34,17 +33,11 @@ public class HomeController {
         if (auth != null){
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
-        return "redirect:/home-page";
+        return "redirect:/admin/home";
     }
 	
 	@RequestMapping(value="/access-denied", method = RequestMethod.GET)
     public String accessDenied() {
         return "redirect:/login?accessDenied";
-    }
-	
-	@RequestMapping(value="/contact-us", method = RequestMethod.GET)
-    public ModelAndView contactPage() {
-		ModelAndView mav = new ModelAndView("web/contact");
-		return mav;
     }
 }

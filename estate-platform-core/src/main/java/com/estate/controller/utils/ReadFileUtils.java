@@ -1,4 +1,4 @@
-package com.estate.web.controller.utils;
+package com.estate.controller.utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

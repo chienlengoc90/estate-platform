@@ -38,13 +38,13 @@
 								<li class="light-blue dropdown-modal">
 									<a href="<c:url value='/home-page'/>">
 										<i class="ace-icon fa fa-home home-icon"></i>
-										Estate-Home
+										Quản lý tòa nhà
 									</a>
 								</li>
 								<li class="light-blue dropdown-modal">
 									<a href="<c:url value='/logout'/>">
 										<i class="ace-icon fa fa-power-off"></i>
-										Logout
+										Thoát
 									</a>
 								</li>
 								

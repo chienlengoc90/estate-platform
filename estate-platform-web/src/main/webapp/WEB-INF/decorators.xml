@@ -5,16 +5,13 @@
         <pattern>/404-page.html</pattern>
         <pattern>/ajax*</pattern>
         <pattern>/access-denied</pattern>   
-        <pattern>/ckfinder*</pattern>        
+        <pattern>/ckfinder*</pattern> 
+        <pattern>/logout</pattern>    
     </excludes>
     
     <!-- apply Sitemesh default template -->
     <decorator name="admin" page="admin.jsp">
        <pattern>/admin*</pattern>
-    </decorator>
-    
-    <decorator name="client" page="web.jsp">
-       <pattern>/*</pattern>
     </decorator>
     
     <decorator name="login" page="login.jsp">
