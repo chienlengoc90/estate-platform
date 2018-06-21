@@ -31,10 +31,11 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public List<UserDTO> getUsers(String userName, Pageable pageable) {
+	public List<UserDTO> getUsers(String searchValue, Pageable pageable) {
 		Page<UserEntity> newsPage = null;
-		if (userName != null) {
-			newsPage = userRepository.findByUserNameContainingIgnoreCase(userName, pageable);
+		if (searchValue != null) {
+			newsPage = userRepository.findByUserNameContainingIgnoreCaseOrFullNameIgnoreCaseContaining(searchValue,
+					searchValue, pageable);
 		} else {
 			newsPage = userRepository.findAll(pageable);
 		}
@@ -68,7 +69,7 @@ public class UserService implements IUserService {
 	@Override
 	public UserDTO findNewsById(long id) {
 		UserEntity entity = userRepository.findOne(id);
-		UserDTO dto = userConverter.convertToDto(entity);	
+		UserDTO dto = userConverter.convertToDto(entity);
 		return dto;
 	}
 
