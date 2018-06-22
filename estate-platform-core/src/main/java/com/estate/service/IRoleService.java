@@ -7,4 +7,5 @@ import com.estate.dto.RoleDTO;
 
 public interface IRoleService {
 	List<RoleDTO> findAll();
+	Map<String,String> getRoles();
 }

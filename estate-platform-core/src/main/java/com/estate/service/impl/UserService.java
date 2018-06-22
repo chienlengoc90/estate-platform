@@ -1,9 +1,7 @@
 package com.estate.service.impl;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,13 +11,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.estate.converter.RoleConverter;
 import com.estate.converter.UserConverter;
 import com.estate.core.entity.RoleEntity;
 import com.estate.core.entity.UserEntity;
 import com.estate.core.repository.RoleRepository;
 import com.estate.core.repository.UserRepository;
-import com.estate.dto.RoleDTO;
 import com.estate.dto.UserDTO;
 import com.estate.service.IUserService;
 
@@ -34,9 +30,6 @@ public class UserService implements IUserService {
 	
 	@Autowired
 	private RoleRepository roleRepository;
-	
-	@Autowired 
-	private RoleConverter roleConverter;
 
 	@Override
 	public UserDTO findOneByUserName(String userName) {
@@ -88,13 +81,12 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public UserDTO findNewsById(long id) {
+	public UserDTO findUserById(long id) {
 		UserEntity entity = userRepository.findOne(id);
 		List<RoleEntity> roles = entity.getRoles();
 		UserDTO dto = userConverter.convertToDto(entity);
-		roles.forEach(roleDT ->{
-			dto.setRoleCode(roleDT.getCode());
-			dto.setRoleName(roleDT.getName());
+		roles.forEach(item ->{
+			dto.setRoleCode(item.getCode());
 		});
 		return dto;
 	}
@@ -119,33 +111,5 @@ public class UserService implements IUserService {
 		oldUser.setStatus(1);
 		oldUser.setRoles(roles);
 		return userConverter.convertToDto(userRepository.save(oldUser));
-	}
-
-
-
-/*	@Override
-	public List<UserDTO> getRoles() { 
-		UserDTO dto = new UserDTO();
-		List<RoleEntity> entity = roleRepository.findAll();
-		List<RoleDTO> roles = new ArrayList<RoleDTO>();
-		List<UserDTO> users = new ArrayList<UserDTO>();
-		for(RoleEntity roleEntity : entity) {
-			RoleDTO userDTO = roleConverter.convertToDto(roleEntity);
-			roles.add(userDTO);
-		}
-		dto.setRoles(roles);
-		users.add(dto);
-		return users;
-	}*/
-	
-	@Override
-	public Map<String, String> getRoles() {
-		Map<String,String> roleTerm = new HashMap<String,String>();
-		List<RoleEntity> roleEntity = roleRepository.findAll();
-		roleEntity.forEach(entity ->{
-			RoleDTO roleDTO = roleConverter.convertToDto(entity);
-			roleTerm.put(roleDTO.getCode(), roleDTO.getName());
-		});
-		return roleTerm;
 	}
 }

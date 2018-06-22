@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.estate.dto.UserDTO;
 import com.estate.service.IUserService;
-import com.estate.service.impl.UserService;
 
 @RestController
 @RequestMapping("/ajax/users")
@@ -36,7 +35,7 @@ public class UsersAPI {
 		try {
 			if (idList.length > 0) {
 				for (long id : idList) {
-					if (userService.findNewsById(id) != null) {
+					if (userService.findUserById(id) != null) {
 						userService.delete(id);
 					}
 				}

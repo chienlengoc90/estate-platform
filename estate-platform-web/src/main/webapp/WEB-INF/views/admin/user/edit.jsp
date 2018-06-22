@@ -35,17 +35,10 @@
                     	<div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right">Vai trò</label>
                             <div class="col-sm-9">
-                            <c:if test="${empty model.id}">
-                            	<form:select path="roleCode" id="roleCode">                            	                   	
+                            	<form:select path="roleCode" id="roleCode">
+                            		<form:option value="NONE" label="--- Chọn vai trò ---"/>                            	                   	
 	    							<form:options items="${model.roleDTOs}" />
 								</form:select>
-                            </c:if>
-                            <c:if test="${not empty model.id}">
-	                            <form:select path="roleCode" id="roleCode">  
-	                            	<form:option value="${model.roleName}"/>                          	
-	    							<form:options items="${model.roleDTOs}" />
-								</form:select>
-                            </c:if>
                             </div>
                         </div>
                         <br/>
@@ -107,24 +100,6 @@
     </div>
 </div>
 <script>
-	/* var editor = '';
-	$(document).ready(function () {
-	    editor = CKEDITOR.replace( 'newsDescription' );
-	    CKFinder.setupCKEditor( editor, '${pageContext.request.contextPath}/ckfinder/' );
-	    $('#uploadImage').change(function () {
-            readURL(this, "viewImage");
-        });
-	});
-	function readURL(input, imageId) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#' +imageId).attr('src', reader.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-	 */
 	$("#btnAddOrUpdateUsers").click(function (event) {     
 		event.preventDefault();
         var dataArray = {};
@@ -164,7 +139,7 @@
             contentType:'application/json',
             data: JSON.stringify(data),
             success: function(res) {
-                window.location.href = "<c:url value='/admin/user/"+res.id+"'/>";
+                window.location.href = "<c:url value='/admin/user/edit/"+res.id+"'/>";
             },
             error: function(res) {
                 console.log(res);                	
