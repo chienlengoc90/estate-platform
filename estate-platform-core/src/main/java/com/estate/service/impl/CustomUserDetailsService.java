@@ -18,6 +18,7 @@ import com.estate.constant.CustomMessages;
 import com.estate.dto.MyUserDetail;
 import com.estate.dto.RoleDTO;
 import com.estate.dto.UserDTO;
+import com.estate.service.IUserService;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -25,7 +26,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	private final Logger log = Logger.getLogger(CustomUserDetailsService.class);
 
 	@Autowired
-	private UserService userService;
+	private IUserService userService;
 
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String userName) {

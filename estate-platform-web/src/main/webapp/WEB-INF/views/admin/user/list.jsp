@@ -2,14 +2,14 @@
 	pageEncoding="UTF-8"%>
 	<%@include file="/common/taglib.jsp"%>
 		<c:url var="formUrl" value="/admin/user/list" />
-		<c:url var="formAjax" value="/ajax/user" />
+		<c:url var="formAjax" value="/ajax/users" />
 		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 		<html>
 
 		<head>
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 			<title>
-				<spring:message code="label.user.list"/>
+				<spring:message code="Label.NewsList" text="News List" />
 			</title>
 		</head>
 
@@ -28,11 +28,11 @@
 								<li>
 									<i class="ace-icon fa fa-home home-icon"></i>
 									<a href="<c:url value="/admin/home"/>">
-										<spring:message code="label.home"/>
+										<spring:message code="Label.Home" text="Home" />
 									</a>
 								</li>
 								<li class="active">
-									<spring:message code="label.user.list"/>
+									<spring:message code="Label.NewsList" text="News List" />
 								</li>
 							</ul>
 							<!-- /.breadcrumb -->
@@ -54,7 +54,7 @@
 											<div class="widget-box table-filter">
 												<div class="widget-header">
 													<h4 class="widget-title">
-														<spring:message code="label.search"/>
+														<spring:message code="Label.Search" text="Search" />
 													</h4>
 													<div class="widget-toolbar">
 														<a href="#" data-action="collapse">
@@ -67,11 +67,11 @@
 														<div class="form-horizontal">
 															<div class="form-group">
 																<label class="col-sm-2 control-label">
-																	<spring:message code="label.search.value"/>
+																	<spring:message code="Label.Search.UserName" text="User Name" />
 																</label>
 																<div class="col-sm-8">
 																	<div class="fg-line">
-																		<form:input path="searchValue" cssClass="form-control input-sm" />
+																		<form:input path="userName" cssClass="form-control input-sm" />
 																	</div>
 																</div>
 															</div>
@@ -79,7 +79,7 @@
 																<label class="col-sm-2 control-label"></label>
 																<div class="col-sm-8">
 																	<button id="btnSearch" type="button" class="btn btn-sm btn-success">
-																		<spring:message code="label.search"/>
+																		<spring:message code="Label.Search" text="Search" />
 																		<i class="ace-icon fa fa-arrow-right icon-on-right bigger-110"></i>
 																	</button>
 																</div>
@@ -91,7 +91,7 @@
 											<div class="table-btn-controls">
 												<div class="pull-right tableTools-container">
 													<div class="dt-buttons btn-overlap btn-group">
-														<a flag="info" class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='<spring:message code="label.user.add"/>'
+														<a flag="info" class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='<spring:message code="Label.New.Add" text="Add new post"/>'
 														    href='<c:url value="/admin/user/edit"/>'>
 															<span>
 																<i class="fa fa-plus-circle bigger-110 purple"></i>
@@ -123,14 +123,14 @@
 													</display:column>
 													<display:column headerClass="text-left" property="userName" title="Tên" />
 
-													<display:column headerClass="text-left" property="fullName" title="tên đầy đủ" />
+													<display:column headerClass="text-left" property="fullName" title="full name" />
 													<display:column headerClass="text-left" property="email" title="email" />
-													<display:column headerClass="text-left" property="phoneNumber" title="Số điện thoại" />
-													<display:column headerClass="text-left" property="status" title="Trạng thái" />
+													<display:column headerClass="text-left" property="phoneNumber" title="phone Number" />
+													<display:column headerClass="text-left" property="status" title="status" />
 													<display:column headerClass="col-actions" title="Thao tác" >
-														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật user" href='<c:url value="/admin/user/${tableList.id}"/>'>
+														<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip" title="Cập nhật user" href='<c:url value="/admin/user/edit/${tableList.id}"/>'>
 															<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-														</a>														
+														</a>
 													</display:column>
 												</display:table>
 											</div>
@@ -149,6 +149,9 @@
 					$('#btnSearch').click(function () {
 						$('#listForm').submit();
 					});
+					bindEventCheckAllCheckBox('checkAll');
+					enableOrDisableDeleteAll();
+					autoCheckCheckboxAll('checkAll');
 				});
 
 				function warningBeforeDelete() {
@@ -162,7 +165,41 @@
 					});
 				}
 
-				
+				function bindEventCheckAllCheckBox(id) {
+					$('#' + id).on('change', function () {
+						if ((this).checked) {
+							$(this).closest('table').find('input[type=checkbox]').prop('checked', true);
+						} else {
+							$(this).closest('table').find('input[type=checkbox]').prop('checked', false);
+							$('#btnDelete').prop('disabled', true);
+						}
+					});
+				}
+
+				function enableOrDisableDeleteAll() {
+					$('input[type=checkbox]').click(function () {
+						if ($('input[type=checkbox]:checked').length > 0) {
+							$('#btnDelete').prop('disabled', false);
+						} else {
+							$('#btnDelete').prop('disabled', true);
+						}
+					});
+				}
+
+				function autoCheckCheckboxAll(id) {
+					var totalCheckbox = $('#' + id).closest('table').find('tbody input[type=checkbox]').length;
+					$('#' + id).closest('table').find('tbody input[type=checkbox]').each(function () {
+						var tableObj = $('#' + id).closest('table');
+						$(this).on('change', function () {
+							var totalCheckboxChecked = $(tableObj).find('tbody input[type=checkbox]:checked').length;
+							if (totalCheckboxChecked == totalCheckbox) {
+								$('#' + id).prop('checked', true);
+							} else {
+								$('#' + id).prop('checked', false);
+							}
+						});
+					});
+				}
 
 				function deleteNews(data) {
 					$.ajax({
